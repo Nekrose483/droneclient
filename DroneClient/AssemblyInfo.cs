@@ -4,12 +4,12 @@ using System.Runtime.CompilerServices;
 // Information about this assembly is defined by the following attributes. 
 // Change them to the values specific to your project.
 
-[assembly: AssemblyTitle("DroneServer")]
-[assembly: AssemblyDescription("Server for the Drone Control System")]
+[assembly: AssemblyTitle("DroneClient")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("The Hive")]
-[assembly: AssemblyProduct("Drone Control System")]
-[assembly: AssemblyCopyright("Katja DeCuir & Enzo Lordini")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("")]
+[assembly: AssemblyCopyright("Katja")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
