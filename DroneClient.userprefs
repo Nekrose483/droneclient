@@ -1,8 +1,9 @@
-﻿<Properties>
+﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DroneClient\Main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DroneClient\TODO.cs">
     <Files>
       <File FileName="DroneClient\Main.cs" Line="1" Column="1" />
+      <File FileName="DroneClient\TODO.cs" Line="67" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
