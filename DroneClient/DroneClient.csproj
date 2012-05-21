@@ -58,6 +58,10 @@
     <Compile Include="Sockets.cs" />
     <Compile Include="DCConstants.cs" />
     <Compile Include="FOR ENZO.cs" />
+    <Compile Include="____Connection.cs" />
+    <Compile Include="____Login.cs" />
+    <Compile Include="____MainChat.cs" />
+    <Compile Include="____Program.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
