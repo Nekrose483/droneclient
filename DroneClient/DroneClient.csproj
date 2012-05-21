@@ -53,6 +53,11 @@
     <Compile Include="Main.cs" />
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="TODO.cs" />
+    <Compile Include="Connection.cs" />
+    <Compile Include="Crypto.cs" />
+    <Compile Include="Sockets.cs" />
+    <Compile Include="DCConstants.cs" />
+    <Compile Include="FOR ENZO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
