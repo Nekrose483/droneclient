@@ -9,7 +9,7 @@
       <File FileName="DroneClient\Connection.cs" Line="13" Column="42" />
       <File FileName="DroneClient\DCConstants.cs" Line="3" Column="2" />
       <File FileName="c:\Users\Katja\Documents\Projects\DroneClient\DroneClient\Sockets.cs" Line="71" Column="11" />
-      <File FileName="DroneClient\FOR ENZO.cs" Line="25" Column="72" />
+      <File FileName="DroneClient\FOR ENZO.cs" Line="29" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

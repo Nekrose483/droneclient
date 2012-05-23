@@ -4,7 +4,7 @@
 using System;
 using System.Security.Cryptography;
 
-namespace Hypnoflow.Cryptography {
+namespace DroneClient {
 	// Cryptographic classes
 	public abstract class BaseCrypto : ICryptoTransform {
 		public int InputBlockSize { get { return 1; } }

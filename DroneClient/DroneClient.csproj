@@ -55,13 +55,12 @@
     <Compile Include="TODO.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="Crypto.cs" />
-    <Compile Include="Sockets.cs" />
     <Compile Include="DCConstants.cs" />
-    <Compile Include="FOR ENZO.cs" />
-    <Compile Include="____Connection.cs" />
     <Compile Include="____Login.cs" />
-    <Compile Include="____MainChat.cs" />
-    <Compile Include="____Program.cs" />
+    <Compile Include="LoginWindow.cs" />
+    <Compile Include="gtk-gui\DroneClient.LoginWindow.cs" />
+    <Compile Include="Chat.cs" />
+    <Compile Include="Commands.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
