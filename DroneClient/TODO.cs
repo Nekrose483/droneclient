@@ -90,4 +90,12 @@ namespace ReadXml1
 }
 
 
+XML example and drop down chooser example:
+
+http://www.codeproject.com/Articles/7718/Using-XML-in-C-in-the-simplest-way
+
+CREATING XML DOCUMENTS
+
+http://www.java2s.com/Code/CSharp/XML/ASimpleXMLExample.htm
+
 */
