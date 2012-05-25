@@ -8,9 +8,9 @@ namespace DroneClient
 		public LoginWindow ()
 		{
 			this.Build ();
-			this.buttonOk.Clicked += new EventHandler(clicked_OK); //wtf
+			this.buttonOk.Clicked += new EventHandler(clicked_OK);
 		}
-		void clicked_OK (object sender, EventArgs e) //the hell is wrong with this?
+		void clicked_OK (object sender, EventArgs e)
 		{
 			//save to file config.ini then trigger connection again
 		}

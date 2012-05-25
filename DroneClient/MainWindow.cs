@@ -11,9 +11,9 @@ public partial class MainWindow: Gtk.Window
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
-		//label4.ForeColor = Color.Red; //how is this done
+		//label4.ForeColor = Color.Red; //how is this done in mono?
 		Connection.StartConnection(); //should prolly get info first
-		//this.entry1.Changed += new EventHandler(entry1_Changed);
+		//this.entry1.Changed += new EventHandler(entry1_Changed); //impliment this in verson 2
 		this.button1.Clicked += new EventHandler(button1_Click);
 	}
 	
@@ -24,7 +24,7 @@ public partial class MainWindow: Gtk.Window
 		a.RetVal = true;
 	}
 	
-/*	void entry1_Changed(object sender, EventArgs e)
+/*	void entry1_Changed(object sender, EventArgs e)       //impliment this in verson 2
         {
             if (e.KeyData == Keys.Enter) //remove this or parse for enter key...
             {
@@ -61,7 +61,7 @@ public partial class MainWindow: Gtk.Window
         }
 	public static void UpdateChatTextbox(string text)
         {
-            textview1.Text += "\r\n";  //wtf is wrong here
+            textview1.Text += "\r\n";
             textview1.Text += text;
         }
 	

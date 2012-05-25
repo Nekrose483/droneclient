@@ -1,5 +1,5 @@
 using System;
-namespace DroneClient                  //fix adUser and adPass from DCConstants.. look at server and see how it's
+namespace DroneClient                  //get authpattern in server.
 {                                      //done there.. can we use XML?
 	public class Commands
 	{
