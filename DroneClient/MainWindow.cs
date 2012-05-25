@@ -13,7 +13,7 @@ public partial class MainWindow: Gtk.Window
 		Build ();
 		//label4.ForeColor = Color.Red; //how is this done
 		Connection.StartConnection(); //should prolly get info first
-		this.entry1.Changed += new EventHandler(entry1_Changed);
+		//this.entry1.Changed += new EventHandler(entry1_Changed);
 		this.button1.Clicked += new EventHandler(button1_Click);
 	}
 	
@@ -65,10 +65,10 @@ public partial class MainWindow: Gtk.Window
             textview1.Text += text;
         }
 	
-	public static void ErrorMessageThing (string text)
+	public static void ErrorMessage (string text)
 	{
 		ErrorMessageThing err = new ErrorMessageThing ();
-		err.SetText(text);
+		ErrorMessageThing.SetText(text);
 		err.Show ();
 	}
 }

@@ -24,7 +24,7 @@ namespace DroneClient
 	
 		public static void Disconnected(string reason)
         {
-                MainWindow.ErrorMessageThing("*le connection has failed*");
+                MainWindow.ErrorMessage("*le connection has failed*");
                 isConnected = false;
         }
 		
