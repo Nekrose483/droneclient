@@ -15,5 +15,5 @@ namespace DroneClient
 			win.Show ();
 			Application.Run ();
 		}
-	}
+	}	
 }

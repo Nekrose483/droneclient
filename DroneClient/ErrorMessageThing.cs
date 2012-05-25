@@ -1,18 +1,22 @@
 using System;
-using Gtk;
-
 namespace DroneClient
 {
-	public partial class LoginWindow : Gtk.Dialog
+	public partial class ErrorMessageThing : Gtk.Dialog
 	{
-		public LoginWindow ()
+		public ErrorMessageThing ()
 		{
 			this.Build ();
 			this.buttonOk.Clicked += new EventHandler(clicked_OK); //wtf
 		}
+		
 		void clicked_OK (object sender, EventArgs e) //the hell is wrong with this?
 		{
-			//save to file config.ini then trigger connection again
+			this.Close();
+		}
+		
+		public static void SetText (string text)
+		{
+			label2.Text = text;
 		}
 	}
 }

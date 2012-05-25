@@ -8,36 +8,25 @@ using DroneClient;
 
 public partial class MainWindow: Gtk.Window
 {	
-	public tcpConnection HiveConnection;
-	
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
-		this.entry1.KeyDown += new KeyEventHandler(entry1_KeyDown);
-		this.button1_Click.Clicked += new KeyEventHandler(button1_Click);
+		//label4.ForeColor = Color.Red; //how is this done
+		Connection.StartConnection(); //should prolly get info first
+		this.entry1.Changed += new EventHandler(entry1_Changed);
+		this.button1.Clicked += new EventHandler(button1_Click);
 	}
 	
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
 	{
-		HiveConnection.CloseConnection();
+		Connection.HiveConnection.CloseConnection();
 		Application.Quit ();
 		a.RetVal = true;
 	}
 	
-	public void StartConnection() //this can be moved to Connection.cs class Connection
+/*	void entry1_Changed(object sender, EventArgs e)
         {
-            HiveConnection = new tcpConnection(this, Host, Nickname); //fix 'this' and put it in class connection
-            HiveConnection.Connect();
-        }
-	
-	public void Disconnected(string reason) //to connection.cs
-        {
-            MainWindow.Disconnected(reason);
-        }
-	
-	void entry1_KeyDown(object sender, EventArgs e)
-        {
-            if (e.KeyData == Keys.Enter)
+            if (e.KeyData == Keys.Enter) //remove this or parse for enter key...
             {
                 if (entry1.Text != "")
                 {
@@ -48,12 +37,12 @@ public partial class MainWindow: Gtk.Window
                     }
                     else
                     {
-                        HiveConnection.SendMessage("MSG :" + entry1.Text);
+                        Connection.HiveConnection.SendMessage("MSG :" + entry1.Text);
                         entry1.Text = "";
                     }
                 }
             }
-        }
+        } */
 	private void button1_Click(object sender, EventArgs e)
         {
             if (entry1.Text != "")
@@ -65,9 +54,21 @@ public partial class MainWindow: Gtk.Window
                 }
                 else
                 {
-                    HiveConnection.SendMessage("MSG :" + entry1.Text);
+                    Connection.HiveConnection.SendMessage("MSG :" + entry1.Text);
                     entry1.Text = "";
                 }
             }
         }
+	public static void UpdateChatTextbox(string text)
+        {
+            textview1.Text += "\r\n";  //wtf is wrong here
+            textview1.Text += text;
+        }
+	
+	public static void ErrorMessageThing (string text)
+	{
+		ErrorMessageThing err = new ErrorMessageThing ();
+		err.SetText(text);
+		err.Show ();
+	}
 }

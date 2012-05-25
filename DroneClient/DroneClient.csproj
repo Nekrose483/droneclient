@@ -56,11 +56,12 @@
     <Compile Include="Connection.cs" />
     <Compile Include="Crypto.cs" />
     <Compile Include="DCConstants.cs" />
-    <Compile Include="____Login.cs" />
     <Compile Include="LoginWindow.cs" />
     <Compile Include="gtk-gui\DroneClient.LoginWindow.cs" />
     <Compile Include="Chat.cs" />
     <Compile Include="Commands.cs" />
+    <Compile Include="ErrorMessageThing.cs" />
+    <Compile Include="gtk-gui\DroneClient.ErrorMessageThing.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

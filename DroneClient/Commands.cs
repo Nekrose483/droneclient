@@ -3,10 +3,12 @@ namespace DroneClient                  //fix adUser and adPass from DCConstants.
 {                                      //done there.. can we use XML?
 	public class Commands
 	{
+		public static string authpattern = DCConstants.authpattern;
+		
 		public Commands ()
 		{
 		}
-		public void onCommand(string message)
+		public static void onCommand(string message)
         {
             List<string> splitArray = new List<string>(message.Split(new char[] { '/' }));
             splitArray.RemoveAt(0);
@@ -21,33 +23,27 @@ namespace DroneClient                  //fix adUser and adPass from DCConstants.
             {
                 string userToKill = args[0];
                 args.RemoveAt(0);
-                HiveConnection.SendMessage("ADMIN "+adUser+" "+adPass+" :KILL " + userToKill+" "+String.Join(" ",args.ToArray()));
+                Connection.HiveConnection.SendMessage("ADMIN "+authpattern+" :KILL " + userToKill+" "+String.Join(" ",args.ToArray()));
             }
             else if (command == "MUTE")
             {
                 string userToKill = args[0];
                 args.RemoveAt(0);
-                HiveConnection.SendMessage("ADMIN " + adUser + " " + adPass + " :MUTE " + userToKill);
+                Connection.HiveConnection.SendMessage("ADMIN " + authpattern + " :MUTE " + userToKill);
             }
             else if (command == "UNMUTE")
             {
                 string userToKill = args[0];
                 args.RemoveAt(0);
-                HiveConnection.SendMessage("ADMIN " + adUser + " " + adPass + " :UNMUTE " + userToKill);
+                Connection.HiveConnection.SendMessage("ADMIN " + authpattern + " :UNMUTE " + userToKill);
             }
             else if (command == "ME")
             {
-                HiveConnection.SendMessage("ACTION :" + String.Join(" ",args.ToArray()));
+                Connection.HiveConnection.SendMessage("ACTION :" + String.Join(" ",args.ToArray()));
             }
             else if (command == "NOTICE")
             {
-                HiveConnection.SendMessage("NOTICE :" + String.Join(" ",args.ToArray()));
-            }
-            else if (command == "LOGIN")
-            {
-                adUser = args[0];
-                adPass = args[1];
-                HiveConnection.SendMessage("ADMIN " + adUser + " " + adPass + " :");
+                Connection.HiveConnection.SendMessage("NOTICE :" + String.Join(" ",args.ToArray()));
             }
         }
 		

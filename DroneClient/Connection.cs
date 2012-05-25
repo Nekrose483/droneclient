@@ -9,39 +9,66 @@ using System.Threading;
 
 namespace DroneClient
 {
+	public class Connection
+    {
+		public static bool isConnected = false;
+		public delegate void OnError(string message);
+		public delegate void OnRecievedMessage(string message);
+		public static tcpConnection HiveConnection;
+		
+		public static void StartConnection()
+        {
+            HiveConnection = new tcpConnection(DCConstants.Host, DCConstants.Username, DCConstants.Password);
+            HiveConnection.Connect();
+        }
+	
+		public static void Disconnected(string reason)
+        {
+                MainWindow.ErrorMessageThing("*le connection has failed*");
+                isConnected = false;
+        }
+		
+		public static void RecievedMessage(string message)
+        {
+                MainWindow.UpdateChatTextbox(message);
+        }
+	}
+	
 	public class tcpConnection
     {
         public StreamWriter Outgoing;
         private StreamReader Incoming;
-        private TcpClient Connection;
+        private TcpClient Connection1;
         private Thread Messages;
         private IPAddress IP;
         public string host;
         public string nick;
+		public string pass;
         bool isConnected;
         public tcpConnection(string Host, string Username, string Password) //already in DCConstants.. remove this
         {
             host = Host;
-            nick = Nickname;
+            nick = Username;
+			pass = Password;
         }
         public void Connect()
         {
             try
             {
                 IP = IPAddress.Parse(host); //fix this stuff
-                Connection = new TcpClient();
-                Connection.Connect(IP, 1986);
-                Outgoing = new StreamWriter(Connection.GetStream());
-                Outgoing.WriteLine(nick);
+                Connection1 = new TcpClient();
+                Connection1.Connect(IP, 1986);
+                Outgoing = new StreamWriter(Connection1.GetStream());
+				Outgoing.WriteLine(nick + ";" + pass); //make the server accept this
                 Outgoing.Flush();
                 Messages = new Thread(new ThreadStart(this.Communication));
                 Messages.Start();
             }
-            catch (Exception e) { m_ParentForm.Disconnected(e.Message); } //why the form?
+            catch (Exception e) { Connection.Disconnected(e.Message); }
         }
         private void Communication()
         {
-            Incoming = new StreamReader(Connection.GetStream());
+            Incoming = new StreamReader(Connection1.GetStream());
             string check = Incoming.ReadLine();
             if (check[0] == '1')
             {
@@ -51,7 +78,7 @@ namespace DroneClient
             {
                 string Reason = "Disconnected: ";
                 Reason += check.Substring(2, check.Length - 2);
-                MainWindow.Disconnected(Reason);
+                Connection.Disconnected(Reason);
                 return;
             }
             while (isConnected == true)
@@ -64,7 +91,7 @@ namespace DroneClient
                 {
                     if (isConnected == true)
                     {
-                        MainWindow.Disconnected("Connection to server lost");
+                        Connection.Disconnected("Connection to server lost");
                         Console.WriteLine("Connection Lost: " + e.ToString());
                     }
                     break;
@@ -75,8 +102,8 @@ namespace DroneClient
         {
             try
             {
-                MainWindow.RecievedMessage(message); //put recievedMessage in Connection.cs in class Connection.
-            }                                          //and then call it from there
+                Connection.RecievedMessage(message);
+            }                                        
             catch { }
         }
         public void CloseConnection()
@@ -84,7 +111,7 @@ namespace DroneClient
             isConnected = false;
             Incoming.Close();
             Outgoing.Close();
-            Connection.Close();
+            Connection1.Close();
             Messages.Abort();
         }
         public void SendMessage(string message)
