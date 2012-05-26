@@ -12,9 +12,9 @@ namespace DroneClient
 			
 			Application.Init ();
 			MainWindow win = new MainWindow ();
+			Connection.win = win; //move this around to see what works.
 			win.Show ();
 			Application.Run ();
-			Connection.win = win;
 		}
 	}	
 }
