@@ -15,6 +15,7 @@ namespace DroneClient
 			global::Stetic.Gui.Initialize (this);
 			// Widget DroneClient.ErrorMessageThing
 			this.Name = "DroneClient.ErrorMessageThing";
+			this.Title = global::Mono.Unix.Catalog.GetString ("window1");
 			this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 			// Internal child DroneClient.ErrorMessageThing.VBox
 			global::Gtk.VBox w1 = this.VBox;

@@ -59,16 +59,16 @@ public partial class MainWindow: Gtk.Window
                 }
             }
         }
-	public static void UpdateChatTextbox(string text)
+	public void UpdateChatTextbox(string text)
         {
-            textview1.Text += "\r\n";
+            textview1.Text += "\r\n"; //look in the library
             textview1.Text += text;
         }
 	
 	public static void ErrorMessage (string text)
 	{
 		ErrorMessageThing err = new ErrorMessageThing ();
-		ErrorMessageThing.SetText(text);
+		err.SetText(text);
 		err.Show ();
 	}
 }

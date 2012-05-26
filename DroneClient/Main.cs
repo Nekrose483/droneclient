@@ -14,6 +14,7 @@ namespace DroneClient
 			MainWindow win = new MainWindow ();
 			win.Show ();
 			Application.Run ();
+			Connection.win = win;
 		}
 	}	
 }

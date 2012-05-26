@@ -6,15 +6,15 @@ namespace DroneClient
 		public ErrorMessageThing ()
 		{
 			this.Build ();
-			this.buttonOk.Clicked += new EventHandler(clicked_OK); //wtf
+			this.buttonOk.Clicked += new EventHandler(clicked_OK);
 		}
 		
-		void clicked_OK (object sender, EventArgs e) //the hell is wrong with this?
+		void clicked_OK (object sender, EventArgs e)
 		{
 			this.Close();
 		}
 		
-		public static void SetText (string text)
+		public void SetText (string text)
 		{
 			label2.Text = text;
 		}

@@ -15,6 +15,7 @@ namespace DroneClient
 		public delegate void OnError(string message);
 		public delegate void OnRecievedMessage(string message);
 		public static tcpConnection HiveConnection;
+		public static MainWindow win;
 		
 		public static void StartConnection()
         {
@@ -30,7 +31,7 @@ namespace DroneClient
 		
 		public static void RecievedMessage(string message)
         {
-                MainWindow.UpdateChatTextbox(message);
+                win.UpdateChatTextbox(message);
         }
 	}
 	

@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+
 namespace DroneClient                  //get authpattern in server.
 {                                      //done there.. can we use XML?
 	public class Commands

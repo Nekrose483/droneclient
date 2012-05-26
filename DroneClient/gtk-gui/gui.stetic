@@ -354,6 +354,7 @@
   </widget>
   <widget class="Gtk.Dialog" id="DroneClient.ErrorMessageThing" design-size="273 165">
     <property name="MemberName" />
+    <property name="Title" translatable="yes">window1</property>
     <property name="WindowPosition">CenterOnParent</property>
     <property name="Buttons">2</property>
     <property name="HelpButton">False</property>
