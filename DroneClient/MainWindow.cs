@@ -61,8 +61,8 @@ public partial class MainWindow: Gtk.Window
         }
 	public void UpdateChatTextbox(string text)
         {
-            textview1.Text += "\r\n"; //look in the library
-            textview1.Text += text;
+            textview1.Buffer.Text += "\r\n"; //look in the library
+            textview1.Buffer.Text += text;
         }
 	
 	public static void ErrorMessage (string text)

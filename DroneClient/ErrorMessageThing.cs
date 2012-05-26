@@ -11,7 +11,7 @@ namespace DroneClient
 		
 		void clicked_OK (object sender, EventArgs e)
 		{
-			this.Close();
+			//this.Quit(); //make sure this doesnt quit the whole thing.
 		}
 		
 		public void SetText (string text)
