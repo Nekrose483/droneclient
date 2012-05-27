@@ -9,7 +9,7 @@ namespace DroneClient
         public static string Username;
 		public static string Password;
 		public static string ConfigFile = "Config.ini";
-		public static string authpattern;
+		public static string authpattern; //not sure if we really need this.
 	}
 }
 
