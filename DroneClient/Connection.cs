@@ -52,20 +52,23 @@ namespace DroneClient
             nick = Username;
 			pass = Password;
         }
-        public void Connect()
-        {
-            try
-            {
-                IP = IPAddress.Parse(host); //fix this stuff
-                Connection1 = new TcpClient();
-                Connection1.Connect(IP, 1986);
-                Outgoing = new StreamWriter(Connection1.GetStream());
-				Outgoing.WriteLine(nick + ";" + pass); //make the server accept this
-                Outgoing.Flush();
-                Messages = new Thread(new ThreadStart(this.Communication));
-                Messages.Start();
-            }
-            catch (Exception e) { Connection.Disconnected(e.Message); }
+        public void Connect ()
+		{
+			try {
+				Console.WriteLine ("Attempting to connect to " + host);
+				
+				IP = IPAddress.Parse (host); //fix this stuff
+				Connection1 = new TcpClient ();
+				Connection1.Connect (IP, 1986);
+				Outgoing = new StreamWriter (Connection1.GetStream ());
+				Outgoing.WriteLine (nick + ":" + pass + ":ksksks"); //make the server accept this
+				Outgoing.Flush ();
+				Messages = new Thread (new ThreadStart (this.Communication));
+				Messages.Start ();
+			} catch (Exception e) { 
+				Console.WriteLine ("Failed connection: " + e.Message);
+				Connection.Disconnected(e.Message); 
+			}
         }
         private void Communication()
         {
