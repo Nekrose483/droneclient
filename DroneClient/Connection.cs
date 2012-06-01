@@ -6,6 +6,9 @@ using System.Net;
 using System.Net.Sockets;
 using System.IO;
 using System.Threading;
+using System.Xml;
+using System.Xml.Serialization;
+using System.Xml.XPath;
 
 namespace DroneClient
 {
@@ -29,8 +32,69 @@ namespace DroneClient
                 isConnected = false;
         }
 		
-		public static void RecievedMessage(string message)
-        {
+		public static void RecievedMessage (string message)
+		{
+			//parse received messages
+			byte[] byteArray = Encoding.UTF8.GetBytes (message);
+			MemoryStream stream = new MemoryStream (byteArray);
+			
+			XPathDocument xmldoc;
+			
+			try {
+				xmldoc = new XPathDocument (stream);
+			} catch (Exception ex) {
+				//Console.WriteLine ("Exception: " + (string)ex.ToString);
+				Console.WriteLine ("{0} Exception in xml: ", ex);
+				return;
+			}
+			
+			XPathNavigator nav = xmldoc.CreateNavigator ();
+			
+			nav.MoveToRoot ();
+			nav.MoveToFirstChild ();
+		
+			
+			do {
+				//this code works, but it seems to only comb through 1 dept level
+				//Find the first element.
+				
+				if (nav.NodeType == XPathNodeType.Element) {
+					//if children exist
+					if (nav.HasChildren == true) {
+
+						//Move to the first child.
+						nav.MoveToFirstChild ();
+
+						//Loop through all the children.
+						do {
+							//loop through the xml and look for type flag
+							
+							if (nav.Name == "type") {
+								//we found the type flag, now figure out
+								//where to send this message
+								
+								if (nav.Value == "chat") {
+									//send to chat server
+									//Note, I'm bypassing Server.OnCommand
+									//why do we need it?
+								
+									Chat.interpretChatXML (nav);
+									return;
+								}
+							}
+							
+						} while (nav.MoveToNext()); 
+					} else {
+						
+						//Console.Write ("The XML string for this PARENT ");
+						//Console.Write ("  " + nav.Name + " ");
+						//Console.WriteLine ("is '{0}'", nav.Value);
+						
+					}
+				}
+			} while (nav.MoveToNext());
+			
+			return;
                 win.UpdateChatTextbox(message);
         }
 	}

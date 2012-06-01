@@ -54,7 +54,8 @@ public partial class MainWindow: Gtk.Window
                 }
                 else
                 {
-                    Connection.HiveConnection.SendMessage("MSG :" + entry1.Text);
+					string formatted_msg = Chat.formatXMLChatMessage("","",entry1.Text);
+                    Connection.HiveConnection.SendMessage(formatted_msg);
                     entry1.Text = "";
                 }
             }
