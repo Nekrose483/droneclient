@@ -8,6 +8,8 @@ using DroneClient;
 
 public partial class MainWindow: Gtk.Window
 {	
+	ListStore store = new ListStore(typeof (string));
+	
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
@@ -15,6 +17,15 @@ public partial class MainWindow: Gtk.Window
 		Connection.StartConnection(); //should prolly get info first
 		//this.entry1.Changed += new EventHandler(entry1_Changed); //impliment this in verson 2
 		this.button1.Clicked += new EventHandler(button1_Click);
+		this.ExitAction.Activated += new EventHandler(Exit_Click);
+		this.MinimizeToTrayAction.Activated += new EventHandler(MinimizeToTray_Click);
+		
+		this.combobox1.Clear();
+        CellRendererText cell = new CellRendererText();
+        this.combobox1.PackStart(cell, false);
+        this.combobox1.AddAttribute(cell, "text", 0);
+        //ListStore store = new ListStore(typeof (string));
+        this.combobox1.Model = store;
 	}
 	
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
@@ -62,7 +73,7 @@ public partial class MainWindow: Gtk.Window
         }
 	public void UpdateChatTextbox(string text)
         {
-            textview1.Buffer.Text += "\r\n"; //look in the library
+            textview1.Buffer.Text += "\r\n";
             textview1.Buffer.Text += text;
         }
 	
@@ -71,5 +82,20 @@ public partial class MainWindow: Gtk.Window
 		ErrorMessageThing err = new ErrorMessageThing ();
 		err.SetText(text);
 		err.Show ();
+	}
+	
+	private void Exit_Click (object sender, EventArgs e)
+    {
+		//this.DestroyEvent();
+    }
+	
+	private void MinimizeToTray_Click (object sender, EventArgs e)
+    {
+		//OS Specific
+    }
+	
+	public void TaskComboFill (string text)
+	{
+        store.AppendValues (text);	
 	}
 }

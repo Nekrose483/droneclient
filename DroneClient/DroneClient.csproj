@@ -64,6 +64,7 @@
     <Compile Include="ErrorMessageThing.cs" />
     <Compile Include="gtk-gui\DroneClient.ErrorMessageThing.cs" />
     <Compile Include="XML.cs" />
+    <Compile Include="Tasks.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
