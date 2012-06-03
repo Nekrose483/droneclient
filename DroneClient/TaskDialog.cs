@@ -6,9 +6,15 @@ namespace DroneClient
 		public TaskDialog (string title, string body)
 		{
 			this.Build ();
+			this.button17.Clicked += new EventHandler(clicked_Accept);
 			label1.Text = title;
 			textview1.Buffer.Text = body;
 			//read it out loud here
+		}
+		
+		void clicked_Accept (object sender, EventArgs e)
+		{
+			//this.Quit(); //make sure this doesnt quit the whole thing.
 		}
 	}
 }
