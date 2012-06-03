@@ -22,7 +22,7 @@ namespace DroneClient
 		
 		public static void StartConnection()
         {
-            HiveConnection = new tcpConnection(DCConstants.Host, DCConstants.Username, DCConstants.Password);
+            HiveConnection = new tcpConnection();
             HiveConnection.Connect();
         }
 	
@@ -81,6 +81,11 @@ namespace DroneClient
 									Chat.interpretChatXML (nav);
 									return;
 								}
+								
+								if (nav.Value == "task") {								
+									Tasks.interpretTaskXML (nav);
+									return;
+								}
 							}
 							
 						} while (nav.MoveToNext()); 
@@ -110,22 +115,20 @@ namespace DroneClient
         public string nick;
 		public string pass;
         bool isConnected;
-        public tcpConnection(string Host, string Username, string Password) //already in DCConstants.. remove this
+        public tcpConnection()
         {
-            host = Host;
-            nick = Username;
-			pass = Password;
+			
         }
         public void Connect ()
 		{
 			try {
-				Console.WriteLine ("Attempting to connect to " + host);
+				Console.WriteLine ("Attempting to connect to " + DCConstants.Host);
 				
-				IP = IPAddress.Parse (host); //fix this stuff
+				IP = IPAddress.Parse (DCConstants.Host);
 				Connection1 = new TcpClient ();
 				Connection1.Connect (IP, 1986);
 				Outgoing = new StreamWriter (Connection1.GetStream ());
-				Outgoing.WriteLine (nick + ":" + pass + ":ksksks"); //make the server accept this
+				Outgoing.WriteLine (DCConstants.Username + ":" + DCConstants.Password + ":ksksks"); //make the server accept this
 				Outgoing.Flush ();
 				Messages = new Thread (new ThreadStart (this.Communication));
 				Messages.Start ();
