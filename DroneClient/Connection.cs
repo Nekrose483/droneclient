@@ -100,7 +100,6 @@ namespace DroneClient
 			} while (nav.MoveToNext());
 			
 			return;
-                win.UpdateChatTextbox(message);
         }
 	}
 	
@@ -126,9 +125,9 @@ namespace DroneClient
 				
 				IP = IPAddress.Parse (DCConstants.Host);
 				Connection1 = new TcpClient ();
-				Connection1.Connect (IP, 1986);
+				Connection1.Connect (IP, DCConstants.Port);
 				Outgoing = new StreamWriter (Connection1.GetStream ());
-				Outgoing.WriteLine (DCConstants.Username + ":" + DCConstants.Password + ":ksksks"); //make the server accept this
+				Outgoing.WriteLine (DCConstants.Username + ":" + DCConstants.Password + ":" + DCConstants.authpattern); //make the server accept this
 				Outgoing.Flush ();
 				Messages = new Thread (new ThreadStart (this.Communication));
 				Messages.Start ();

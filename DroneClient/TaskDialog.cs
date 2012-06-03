@@ -14,7 +14,7 @@ namespace DroneClient
 		
 		void clicked_Accept (object sender, EventArgs e)
 		{
-			//this.Quit(); //make sure this doesnt quit the whole thing.
+			this.Destroy();
 		}
 	}
 }

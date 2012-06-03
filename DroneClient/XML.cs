@@ -1,23 +1,11 @@
 using System;
-//using System.Object;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Xml;
 using System.Xml.XPath;
-//using System.Xml.XmlReader;
 using System.Xml.Serialization;
 using System.Text.RegularExpressions;
-
-
-//
-//
-//using System.Text;
-//using System.Net;
-//using System.Net.Sockets;
-//using System.IO;
-//using System.Threading;
-//using System.Collections;
 
 namespace DroneClient
 {
@@ -35,15 +23,6 @@ namespace DroneClient
 			tag = tag_;
 			value = value_;
 		}	
-		
-		public void parseJSON(string jsonstr) {
-			//read forward until {
-			//get "[tag]"
-			//read forward until :
-			//  if next char == " then
-			//		get "[value"
-			//  else if next char == [
-		}
 		
 		public void parseXML (string xmlstr)
 		{
@@ -77,7 +56,7 @@ namespace DroneClient
 			
 			
 			do {
-				//this code works, but it seems to only comb through 1 dept level
+				//this code works, but it seems to only comb through 1 depot level
 				//Find the first element.
 				
 				if (nav.NodeType == XPathNodeType.Element) {
@@ -145,7 +124,7 @@ namespace DroneClient
 			return ret;
 		}
 		
-		public string makeJSONString ()
+		public string makeJSONString () //if we dont need this anymore, delete it
 		{
 			string ret = "{\"" + tag + "\":";
 			

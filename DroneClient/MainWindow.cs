@@ -24,7 +24,6 @@ public partial class MainWindow: Gtk.Window
         CellRendererText cell = new CellRendererText();
         this.combobox1.PackStart(cell, false);
         this.combobox1.AddAttribute(cell, "text", 0);
-        //ListStore store = new ListStore(typeof (string));
         this.combobox1.Model = store;
 	}
 	
@@ -86,7 +85,7 @@ public partial class MainWindow: Gtk.Window
 	
 	private void Exit_Click (object sender, EventArgs e)
     {
-		//this.DestroyEvent();
+		Application.Quit();
     }
 	
 	private void MinimizeToTray_Click (object sender, EventArgs e)

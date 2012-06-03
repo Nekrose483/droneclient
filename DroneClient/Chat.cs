@@ -7,10 +7,9 @@ using System.Net.Sockets;
 using System.IO;
 using System.Threading;
 using System.Runtime.InteropServices;
-using System.Text.RegularExpressions; //regular expressions, duh
-using System.Web; //needs to be added as a reference
+using System.Text.RegularExpressions;
+using System.Web;
 using System.Xml.XPath;
-//using System.Xml.XmlReader;
 using System.Xml.Serialization;
 using System.Xml;
 
@@ -22,11 +21,6 @@ namespace DroneClient
         [DllImport("user32.dll", EntryPoint = "SendMessageA")] //dunno what this does
         static extern uint ScrollText(System.IntPtr hwnd, uint wMsg, uint wParam, uint
         lParam);
-
-        private void closeXsInstaChatToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-           // this.Close();
-        }
 		
 		public static string formatXMLChatMessage (string receivername, string channel, string message)
 		{

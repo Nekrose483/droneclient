@@ -1,8 +1,7 @@
 using System;
-using System.Text.RegularExpressions; //regular expressions, duh
-using System.Web; //needs to be added as a reference
+using System.Text.RegularExpressions;
+using System.Web;
 using System.Xml.XPath;
-//using System.Xml.XmlReader;
 using System.Xml.Serialization;
 using System.Xml;
 
@@ -10,7 +9,6 @@ namespace DroneClient
 {
 	public class Tasks
 	{
-		//string TaskName;
 		public static MainWindow win;
 		
 		public Tasks ()
@@ -46,12 +44,6 @@ namespace DroneClient
 							} 
 							
 						} while (nav.MoveToNext()); 
-					} else {
-						/*
-						Console.Write ("The XML string for this PARENT ");
-						Console.Write ("  " + nav.Name + " ");
-						Console.WriteLine ("is '{0}'", nav.Value);
-						*/
 					}
 				}
 			} while (nav.MoveToNext());

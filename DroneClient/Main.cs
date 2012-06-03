@@ -13,7 +13,7 @@ namespace DroneClient
 			Application.Init ();
 			MainWindow win = new MainWindow ();
 			Connection.win = win;
-			Tasks.win = win;//move this around to see what works.
+			Tasks.win = win;
 			win.Show ();
 			Application.Run ();
 		}
