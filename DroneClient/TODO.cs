@@ -24,3 +24,6 @@ void EncryptionTest(string text, byte[] key){
  // plain and plain2 should now be byte-for-byte equal
 }
 */
+
+
+//clean up any comments when you are done with them.
