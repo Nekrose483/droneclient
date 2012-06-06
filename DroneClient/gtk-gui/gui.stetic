@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
   <configuration>
-    <images-root-path>..\..\DroneClient</images-root-path>
+    <images-root-path>../../DroneClient</images-root-path>
     <target-gtk-version>2.12</target-gtk-version>
   </configuration>
   <import>
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/DroneClient.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="447 531">
+  <widget class="Gtk.Window" id="MainWindow" design-size="453 531">
     <action-group name="Default">
       <action id="FileAction">
         <property name="Type">Action</property>
@@ -74,7 +74,7 @@
           <widget class="Gtk.Notebook" id="notebook1">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="CurrentPage">0</property>
+            <property name="CurrentPage">2</property>
             <child>
               <widget class="Gtk.VBox" id="vbox3">
                 <property name="MemberName" />
@@ -171,7 +171,7 @@
             <child>
               <widget class="Gtk.Label" id="label1">
                 <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">Tasks</property>
+                <property name="LabelProp" translatable="yes">My Tasks</property>
               </widget>
               <packing>
                 <property name="type">tab</property>
@@ -266,12 +266,25 @@
               </packing>
             </child>
             <child>
-              <placeholder />
+              <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow2">
+                <property name="MemberName" />
+                <property name="ShadowType">In</property>
+                <child>
+                  <widget class="Gtk.TreeView" id="treeview2">
+                    <property name="MemberName" />
+                    <property name="CanFocus">True</property>
+                    <property name="ShowScrollbars">True</property>
+                  </widget>
+                </child>
+              </widget>
+              <packing>
+                <property name="Position">2</property>
+              </packing>
             </child>
             <child>
               <widget class="Gtk.Label" id="label4">
                 <property name="MemberName" />
-                <property name="LabelProp" translatable="yes">page3</property>
+                <property name="LabelProp" translatable="yes">Family Members</property>
               </widget>
               <packing>
                 <property name="type">tab</property>

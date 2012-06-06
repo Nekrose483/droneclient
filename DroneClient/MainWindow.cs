@@ -10,22 +10,43 @@ public partial class MainWindow: Gtk.Window
 {	
 	ListStore store = new ListStore(typeof (string));
 	
+	TreeViewColumn usernameCol;
+	TreeViewColumn onlineCol;
+	CellRendererText usernameCell;
+	CellRendererText onlineCell;
+	
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
 		Build ();
 		//label4.ForeColor = Color.Red; //how is this done in mono?
-		Connection.StartConnection(); //should prolly get info first
+		Connection.StartConnection (); //should prolly get info first
 		//this.entry1.Changed += new EventHandler(entry1_Changed); //impliment this in verson 2
-		this.button1.Clicked += new EventHandler(button1_Click);
-		this.ExitAction.Activated += new EventHandler(Exit_Click);
-		this.MinimizeToTrayAction.Activated += new EventHandler(MinimizeToTray_Click);
+		this.button1.Clicked += new EventHandler (button1_Click);
+		this.ExitAction.Activated += new EventHandler (Exit_Click);
+		this.MinimizeToTrayAction.Activated += new EventHandler (MinimizeToTray_Click);
 		
-		this.combobox1.Clear();
-        CellRendererText cell = new CellRendererText();
-        this.combobox1.PackStart(cell, false);
-        this.combobox1.AddAttribute(cell, "text", 0);
-        this.combobox1.Model = store;
+		this.combobox1.Clear ();
+		CellRendererText cell = new CellRendererText ();
+		this.combobox1.PackStart (cell, false);
+		this.combobox1.AddAttribute (cell, "text", 0);
+		this.combobox1.Model = store;
+		
+		usernameCol = new TreeViewColumn ();
+		usernameCol.Title = "Name";
+		usernameCell = new CellRendererText ();
+		usernameCol.PackStart (usernameCell, true);
+		
+		onlineCol = new TreeViewColumn ();
+		onlineCol.Title = "Online";
+		onlineCell = new CellRendererText ();
+		usernameCol.PackStart (onlineCell, true);
+		
+		this.GtkScrolledWindow2.treeview2.AppendColumn (usernameCol);
+		
+		this.treeview2.AppendColumn(usernameCol);
+		
 	}
+	
 	
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
 	{
@@ -96,5 +117,9 @@ public partial class MainWindow: Gtk.Window
 	public void TaskComboFill (string text)
 	{
         store.AppendValues (text);	
+	}
+	
+	public void addFamilyMember(FamilyMember fm) {
+		
 	}
 }

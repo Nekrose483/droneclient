@@ -67,6 +67,7 @@
     <Compile Include="Tasks.cs" />
     <Compile Include="TaskDialog.cs" />
     <Compile Include="gtk-gui\DroneClient.TaskDialog.cs" />
+    <Compile Include="FamilyMembers.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
