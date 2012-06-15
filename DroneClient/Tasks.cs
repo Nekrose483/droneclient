@@ -16,9 +16,16 @@ namespace DroneClient
 			
 		}
 		
-		public void get_tasks ()
+		public static void get_tasks ()
 		{
-			//tell server to send tasks for specific drone ID
+			XMLNode rootnode = new XMLNode (null, "x", "");
+				
+			rootnode.childNodes.Add (new XMLNode (rootnode, "type", "asktask"));;
+			string xmlstr = rootnode.makeXMLString ();
+
+          	Connection.HiveConnection.SendMessage(xmlstr);
+			
+			//clear tasks before you recieve them
 		}
 		
 		public static void interpretTaskXML (XPathNavigator nav)
@@ -39,7 +46,7 @@ namespace DroneClient
 							
 							if (nav.Name == "title") {
 								task_title = nav.Value;
-							} else if (nav.Name == "body") {
+							} else if (nav.Name == "body") { //add to,from,start/end dates...
 								task_body = nav.Value;
 							} 
 							
@@ -57,7 +64,7 @@ namespace DroneClient
 		{
 			TaskDialog task = new TaskDialog (title, body);
 			task.Show ();
-			//add the tasks to some kind of array
+			//add the tasks to some kind of array like a LIST in the server
 			win.TaskComboFill(title);
 		}
 	}

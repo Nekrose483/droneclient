@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <stetic-interface>
   <configuration>
-    <images-root-path>../../DroneClient</images-root-path>
+    <images-root-path>..\..\DroneClient</images-root-path>
     <target-gtk-version>2.12</target-gtk-version>
   </configuration>
   <import>
@@ -40,6 +40,16 @@
         <property name="Label" translatable="yes">Minimize to Tray</property>
         <property name="ShortLabel" translatable="yes">Minimize to Tray</property>
       </action>
+      <action id="TasksAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Tasks</property>
+        <property name="ShortLabel" translatable="yes">Tasks</property>
+      </action>
+      <action id="RefreshAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Refresh</property>
+        <property name="ShortLabel" translatable="yes">Refresh</property>
+      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">Drone Control System</property>
@@ -61,6 +71,9 @@
                 <node type="Menuitem" action="LoginAction1" />
                 <node type="Menuitem" action="LogoutAction" />
               </node>
+              <node type="Menu" action="TasksAction">
+                <node type="Menuitem" action="RefreshAction" />
+              </node>
             </node>
           </widget>
           <packing>
@@ -74,7 +87,7 @@
           <widget class="Gtk.Notebook" id="notebook1">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
-            <property name="CurrentPage">2</property>
+            <property name="CurrentPage">0</property>
             <child>
               <widget class="Gtk.VBox" id="vbox3">
                 <property name="MemberName" />

@@ -24,6 +24,7 @@ public partial class MainWindow: Gtk.Window
 		this.button1.Clicked += new EventHandler (button1_Click);
 		this.ExitAction.Activated += new EventHandler (Exit_Click);
 		this.MinimizeToTrayAction.Activated += new EventHandler (MinimizeToTray_Click);
+		this.RefreshAction.Activated += new EventHandler (Refresh_Tasks);
 		
 		this.combobox1.Clear ();
 		CellRendererText cell = new CellRendererText ();
@@ -107,6 +108,11 @@ public partial class MainWindow: Gtk.Window
 	private void Exit_Click (object sender, EventArgs e)
     {
 		Application.Quit();
+    }
+	
+	private void Refresh_Tasks (object sender, EventArgs e)
+    {
+		Tasks.get_tasks();
     }
 	
 	private void MinimizeToTray_Click (object sender, EventArgs e)
