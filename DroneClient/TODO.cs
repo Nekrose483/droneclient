@@ -1,17 +1,4 @@
 /*
-
-
-
-//implementation of sha1
-
-byte[] data = new byte[DATA_SIZE];
-byte[] result; 
-
-SHA1 sha = new SHA1CryptoServiceProvider(); 
-// This is one implementation of the abstract class SHA1.
-result = sha.ComputeHash(data);
-
-
 ENCRYPTION:
 
 EncryptionTest('stuff', Encoding.UTF8.GetBytes('hypn0sh1t'));
@@ -24,6 +11,3 @@ void EncryptionTest(string text, byte[] key){
  // plain and plain2 should now be byte-for-byte equal
 }
 */
-
-
-//clean up any comments when you are done with them.

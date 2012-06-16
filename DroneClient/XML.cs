@@ -16,7 +16,6 @@ namespace DroneClient
 		public string tag;
 		public string value;
 		
-		//XML creater
 		public XMLNode (XMLNode parent_, string tag_, string value_)
 		{
 			parent = parent_;
@@ -24,7 +23,7 @@ namespace DroneClient
 			value = value_;
 		}	
 		
-		public void parseXML (string xmlstr)
+		/*public void parseXML (string xmlstr)
 		{
 			//Used to create data structure given a string
 			//1. search from left to right for <[tag]>
@@ -93,7 +92,7 @@ namespace DroneClient
 			
 			
 			
-		}
+		}*/
 		
 		public XMLNode lastChild ()
 		{
@@ -106,10 +105,7 @@ namespace DroneClient
 		}
 		
 		public string makeXMLString ()
-		{
-			//call this on the root node and it'll interate through the children
-			//recursively and return an XML formatted string
-			
+		{			
 			string ret = "<" + tag + ">";
 			
 			if (childNodes.Count > 0) {
@@ -122,33 +118,7 @@ namespace DroneClient
 			ret += "</"+tag+">";
 			
 			return ret;
-		}
-		
-		public string makeJSONString () //if we dont need this anymore, delete it
-		{
-			string ret = "{\"" + tag + "\":";
-			
-			if (childNodes.Count > 0) {
-				
-				ret += "[";
-				for (int i = 0; i < childNodes.Count; i ++) {
-					XMLNode node = childNodes [i];
-					ret += node.makeJSONString ();
-					if (i < childNodes.Count - 1)
-						ret += ",";
-				}
-				ret += "]";
-				
-			} else {
-				ret += "\"" + value + "\"";
-			}
-			
-			ret += "}";
-			
-			return ret;
-		}
-		
-		
+		}		
 	}
 }
 

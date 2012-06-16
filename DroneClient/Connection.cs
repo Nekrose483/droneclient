@@ -34,7 +34,6 @@ namespace DroneClient
 		
 		public static void RecievedMessage (string message)
 		{
-			//parse received messages
 			byte[] byteArray = Encoding.UTF8.GetBytes (message);
 			MemoryStream stream = new MemoryStream (byteArray);
 			
@@ -43,40 +42,21 @@ namespace DroneClient
 			try {
 				xmldoc = new XPathDocument (stream);
 			} catch (Exception ex) {
-				//Console.WriteLine ("Exception: " + (string)ex.ToString);
 				Console.WriteLine ("{0} Exception in xml: ", ex);
 				return;
 			}
-			
 			XPathNavigator nav = xmldoc.CreateNavigator ();
-			
 			nav.MoveToRoot ();
 			nav.MoveToFirstChild ();
-		
-			
 			do {
-				//this code works, but it seems to only comb through 1 dept level
-				//Find the first element.
-				
 				if (nav.NodeType == XPathNodeType.Element) {
-					//if children exist
 					if (nav.HasChildren == true) {
-
-						//Move to the first child.
 						nav.MoveToFirstChild ();
-
-						//Loop through all the children.
 						do {
-							//loop through the xml and look for type flag
-							
+
 							if (nav.Name == "type") {
-								//we found the type flag, now figure out
-								//where to send this message
 								
 								if (nav.Value == "chat") {
-									//send to chat server
-									//Note, I'm bypassing Server.OnCommand
-									//why do we need it?
 								
 									Chat.interpretChatXML (nav);
 									return;
@@ -89,13 +69,7 @@ namespace DroneClient
 							}
 							
 						} while (nav.MoveToNext()); 
-					} else {
-						
-						//Console.Write ("The XML string for this PARENT ");
-						//Console.Write ("  " + nav.Name + " ");
-						//Console.WriteLine ("is '{0}'", nav.Value);
-						
-					}
+					} 
 				}
 			} while (nav.MoveToNext());
 			
@@ -127,12 +101,12 @@ namespace DroneClient
 				Connection1 = new TcpClient ();
 				Connection1.Connect (IP, DCConstants.Port);
 				Outgoing = new StreamWriter (Connection1.GetStream ());
-				Outgoing.WriteLine (DCConstants.Username + ":" + DCConstants.Password + ":" + DCConstants.authpattern); //make the server accept this
+				Outgoing.WriteLine (DCConstants.Username + ":" + DCConstants.Password + ":" + DCConstants.authpattern);
 				Outgoing.Flush ();
 				Messages = new Thread (new ThreadStart (this.Communication));
 				Messages.Start ();
 			} catch (Exception e) { 
-				Console.WriteLine ("Failed connection: " + e.Message);
+				Console.WriteLine ("Failed connection: " + e.Message); //try to get the conf file and then connect again
 				Connection.Disconnected(e.Message); 
 			}
         }

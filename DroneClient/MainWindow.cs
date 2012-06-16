@@ -19,7 +19,7 @@ public partial class MainWindow: Gtk.Window
 	{
 		Build ();
 		//label4.ForeColor = Color.Red; //how is this done in mono?
-		Connection.StartConnection (); //should prolly get info first
+		Connection.StartConnection ();
 		//this.entry1.Changed += new EventHandler(entry1_Changed); //impliment this in verson 2
 		this.button1.Clicked += new EventHandler (button1_Click);
 		this.ExitAction.Activated += new EventHandler (Exit_Click);

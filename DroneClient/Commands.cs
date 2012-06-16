@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 
-namespace DroneClient                  //get authpattern in server.
+namespace DroneClient
 {                                      //use *me* stuff in XML
+										//convert to XML and put in server
 	public class Commands
 	{
 		public static string authpattern = DCConstants.authpattern;

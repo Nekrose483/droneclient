@@ -62,6 +62,8 @@ namespace DroneClient
 		
 		private static void NewTask (string title, string body)
 		{
+			
+			//if tsk isn't already in the array show popup
 			TaskDialog task = new TaskDialog (title, body);
 			task.Show ();
 			//add the tasks to some kind of array like a LIST in the server
@@ -69,4 +71,3 @@ namespace DroneClient
 		}
 	}
 }
-
