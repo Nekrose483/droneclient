@@ -7,7 +7,6 @@ namespace DroneClient
 	{
 		public static void Main (string[] args)
 		{
-			Config conf = new Config ();
 			Application.Init ();
 			MainWindow win = new MainWindow ();
 			Connection.win = win;

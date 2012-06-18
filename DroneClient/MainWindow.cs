@@ -41,9 +41,7 @@ public partial class MainWindow: Gtk.Window
 		onlineCol.Title = "Online";
 		onlineCell = new CellRendererText ();
 		usernameCol.PackStart (onlineCell, true);
-		
-		this.GtkScrolledWindow2.treeview2.AppendColumn (usernameCol);
-		
+				
 		this.treeview2.AppendColumn(usernameCol);
 		
 	}

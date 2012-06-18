@@ -94,6 +94,8 @@ namespace DroneClient
         }
         public void Connect ()
 		{
+			Config conf = new Config ();
+			
 			try {
 				Console.WriteLine ("Attempting to connect to " + DCConstants.Host);
 				
@@ -107,7 +109,9 @@ namespace DroneClient
 				Messages.Start ();
 			} catch (Exception e) { 
 				Console.WriteLine ("Failed connection: " + e.Message); //try to get the conf file and then connect again
-				Connection.Disconnected(e.Message); 
+				while (conf.ready == false) {conf.checkcreds();}
+				Connection.Disconnected(e.Message);
+				
 			}
         }
         private void Communication()

@@ -3,6 +3,8 @@ namespace DroneClient
 {
 	public class Config
 	{
+		public bool ready = false;
+		
 		public Config ()
 		{
             try {
@@ -14,9 +16,15 @@ namespace DroneClient
                 }
             }
             catch {
-            //open up login window
+            	//create file
             }
         }
+		
+		public void checkcreds ()
+		{
+			//open up login window
+			ready = true;
+		}
 	}
 }
 

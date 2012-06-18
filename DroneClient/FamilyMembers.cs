@@ -53,28 +53,28 @@ namespace DroneClient
 						do {
 							
 							if (nav.Name == "id") {
-								fm.id = nav.Value;
+								fm.id = Int32.Parse(nav.Value);
 							} else if (nav.Name == "username") {
 								fm.username = nav.Value;
 							} else if (nav.Name == "unit") {
-								fm.unit = nav.Value;
+								fm.unit = Int32.Parse(nav.Value);
 							} else if (nav.Name == "number") {
-								fm.number = nav.Value;
+								fm.number = Int32.Parse(nav.Value);
 							} else if (nav.Name == "uniqueid") {
 								fm.uniqueid = nav.Value;
 							} else if (nav.Name == "position_id") {
-								fm.position_id = nav.Value;
+								fm.position_id = Int32.Parse(nav.Value);
 							} else if (nav.Name == "rank") {
-								fm.rank = nav.Value;
+								fm.rank = Int32.Parse(nav.Value);
 							} else if (nav.Name == "join_date") {
 								fm.join_date = nav.Value;
 							} else if (nav.Name == "admin") {
-								fm.admin = nav.Value;
+								fm.admin = Int32.Parse(nav.Value);
 							} else if (nav.Name == "sec_leader") {
 								if (nav.Value == "1")
-									fm.admin = true;
+									fm.sec_leader = true;
 								else
-									fm.admin = false;
+									fm.sec_leader = false;
 							}
 							
 						} while (nav.MoveToNext()); 

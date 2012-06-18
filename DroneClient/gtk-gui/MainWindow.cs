@@ -10,6 +10,8 @@ public partial class MainWindow
 	private global::Gtk.Action LoginAction1;
 	private global::Gtk.Action LogoutAction;
 	private global::Gtk.Action MinimizeToTrayAction;
+	private global::Gtk.Action TasksAction;
+	private global::Gtk.Action RefreshAction;
 	private global::Gtk.VBox vbox1;
 	private global::Gtk.MenuBar menubar1;
 	private global::Gtk.Notebook notebook1;
@@ -30,6 +32,8 @@ public partial class MainWindow
 	private global::Gtk.Entry entry1;
 	private global::Gtk.Button button1;
 	private global::Gtk.Label label2;
+	private global::Gtk.ScrolledWindow GtkScrolledWindow2;
+	private global::Gtk.TreeView treeview2;
 	private global::Gtk.Label label4;
 	private global::Gtk.Statusbar statusbar1;
 	private global::Gtk.Label label5;
@@ -88,6 +92,22 @@ public partial class MainWindow
 		);
 		this.MinimizeToTrayAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Minimize to Tray");
 		w1.Add (this.MinimizeToTrayAction, null);
+		this.TasksAction = new global::Gtk.Action (
+			"TasksAction",
+			global::Mono.Unix.Catalog.GetString("Tasks"),
+			null,
+			null
+		);
+		this.TasksAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Tasks");
+		w1.Add (this.TasksAction, null);
+		this.RefreshAction = new global::Gtk.Action (
+			"RefreshAction",
+			global::Mono.Unix.Catalog.GetString("Refresh"),
+			null,
+			null
+		);
+		this.RefreshAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Refresh");
+		w1.Add (this.RefreshAction, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -98,7 +118,7 @@ public partial class MainWindow
 		this.vbox1.Name = "vbox1";
 		this.vbox1.Spacing = 6;
 		// Container child vbox1.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString (@"<ui><menubar name='menubar1'><menu name='FileAction' action='FileAction'><menuitem name='ExitAction' action='ExitAction'/><menuitem name='MinimizeToTrayAction' action='MinimizeToTrayAction'/></menu><menu name='LoginAction' action='LoginAction'><menuitem name='LoginAction1' action='LoginAction1'/><menuitem name='LogoutAction' action='LogoutAction'/></menu></menubar></ui>");
+		this.UIManager.AddUiFromString (@"<ui><menubar name='menubar1'><menu name='FileAction' action='FileAction'><menuitem name='ExitAction' action='ExitAction'/><menuitem name='MinimizeToTrayAction' action='MinimizeToTrayAction'/></menu><menu name='LoginAction' action='LoginAction'><menuitem name='LoginAction1' action='LoginAction1'/><menuitem name='LogoutAction' action='LogoutAction'/></menu><menu name='TasksAction' action='TasksAction'><menuitem name='RefreshAction' action='RefreshAction'/></menu></menubar></ui>");
 		this.menubar1 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar1")));
 		this.menubar1.Name = "menubar1";
 		this.vbox1.Add (this.menubar1);
@@ -110,7 +130,7 @@ public partial class MainWindow
 		this.notebook1 = new global::Gtk.Notebook ();
 		this.notebook1.CanFocus = true;
 		this.notebook1.Name = "notebook1";
-		this.notebook1.CurrentPage = 0;
+		this.notebook1.CurrentPage = 2;
 		// Container child notebook1.Gtk.Notebook+NotebookChild
 		this.vbox3 = new global::Gtk.VBox ();
 		this.vbox3.Name = "vbox3";
@@ -182,7 +202,7 @@ public partial class MainWindow
 		// Notebook tab
 		this.label1 = new global::Gtk.Label ();
 		this.label1.Name = "label1";
-		this.label1.LabelProp = global::Mono.Unix.Catalog.GetString ("Tasks");
+		this.label1.LabelProp = global::Mono.Unix.Catalog.GetString ("My Tasks");
 		this.notebook1.SetTabLabel (this.vbox3, this.label1);
 		this.label1.ShowAll ();
 		// Container child notebook1.Gtk.Notebook+NotebookChild
@@ -249,18 +269,27 @@ public partial class MainWindow
 		this.label2.LabelProp = global::Mono.Unix.Catalog.GetString ("Chat");
 		this.notebook1.SetTabLabel (this.vbox2, this.label2);
 		this.label2.ShowAll ();
+		// Container child notebook1.Gtk.Notebook+NotebookChild
+		this.GtkScrolledWindow2 = new global::Gtk.ScrolledWindow ();
+		this.GtkScrolledWindow2.Name = "GtkScrolledWindow2";
+		this.GtkScrolledWindow2.ShadowType = ((global::Gtk.ShadowType)(1));
+		// Container child GtkScrolledWindow2.Gtk.Container+ContainerChild
+		this.treeview2 = new global::Gtk.TreeView ();
+		this.treeview2.CanFocus = true;
+		this.treeview2.Name = "treeview2";
+		this.GtkScrolledWindow2.Add (this.treeview2);
+		this.notebook1.Add (this.GtkScrolledWindow2);
+		global::Gtk.Notebook.NotebookChild w19 = ((global::Gtk.Notebook.NotebookChild)(this.notebook1 [this.GtkScrolledWindow2]));
+		w19.Position = 2;
 		// Notebook tab
-		global::Gtk.Label w18 = new global::Gtk.Label ();
-		w18.Visible = true;
-		this.notebook1.Add (w18);
 		this.label4 = new global::Gtk.Label ();
 		this.label4.Name = "label4";
-		this.label4.LabelProp = global::Mono.Unix.Catalog.GetString ("page3");
-		this.notebook1.SetTabLabel (w18, this.label4);
+		this.label4.LabelProp = global::Mono.Unix.Catalog.GetString ("Family Members");
+		this.notebook1.SetTabLabel (this.GtkScrolledWindow2, this.label4);
 		this.label4.ShowAll ();
 		this.vbox1.Add (this.notebook1);
-		global::Gtk.Box.BoxChild w19 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.notebook1]));
-		w19.Position = 1;
+		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.notebook1]));
+		w20.Position = 1;
 		// Container child vbox1.Gtk.Box+BoxChild
 		this.statusbar1 = new global::Gtk.Statusbar ();
 		this.statusbar1.Name = "statusbar1";
@@ -270,20 +299,20 @@ public partial class MainWindow
 		this.label5.Name = "label5";
 		this.label5.LabelProp = global::Mono.Unix.Catalog.GetString ("Status: Offline");
 		this.statusbar1.Add (this.label5);
-		global::Gtk.Box.BoxChild w20 = ((global::Gtk.Box.BoxChild)(this.statusbar1 [this.label5]));
-		w20.Position = 1;
-		w20.Expand = false;
-		w20.Fill = false;
-		this.vbox1.Add (this.statusbar1);
-		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.statusbar1]));
-		w21.Position = 2;
+		global::Gtk.Box.BoxChild w21 = ((global::Gtk.Box.BoxChild)(this.statusbar1 [this.label5]));
+		w21.Position = 1;
 		w21.Expand = false;
 		w21.Fill = false;
+		this.vbox1.Add (this.statusbar1);
+		global::Gtk.Box.BoxChild w22 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.statusbar1]));
+		w22.Position = 2;
+		w22.Expand = false;
+		w22.Fill = false;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 447;
+		this.DefaultWidth = 453;
 		this.DefaultHeight = 531;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
