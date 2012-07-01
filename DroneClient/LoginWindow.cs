@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Gtk;
 
 namespace DroneClient
@@ -9,11 +10,21 @@ namespace DroneClient
 		{
 			this.Build ();
 			this.buttonOk.Clicked += new EventHandler(clicked_OK);
-			//check if config file exists.. if not, create it
+			this.buttonCancel.Clicked += new EventHandler(clicked_Cancel);
 		}
 		void clicked_OK (object sender, EventArgs e)
 		{
-			//save to file config.ini then trigger connection again
+			StreamWriter writer = new StreamWriter(DCConstants.ConfigFile);
+				writer.WriteLine("username:" + entry1.Text);
+				writer.WriteLine("password:" + entry2.Text);
+				writer.Close();
+			Connection.HiveConnection.Connect();
+			this.Destroy();
+		}
+		
+		void clicked_Cancel (object sender, EventArgs e)
+		{
+			this.Destroy();
 		}
 	}
 }

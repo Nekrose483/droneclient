@@ -1,9 +1,11 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DroneClient\XML.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DroneClient\MainWindow.cs">
     <Files>
-      <File FileName="DroneClient\Connection.cs" Line="109" Column="109" />
-      <File FileName="DroneClient\XML.cs" Line="25" Column="3" />
+      <File FileName="DroneClient\Tasks.cs" Line="23" Column="5" />
+      <File FileName="DroneClient\Commands.cs" Line="19" Column="1" />
+      <File FileName="DroneClient\FamilyMembers.cs" Line="39" Column="9" />
+      <File FileName="DroneClient\MainWindow.cs" Line="164" Column="77" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

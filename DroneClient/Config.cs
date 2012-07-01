@@ -1,4 +1,6 @@
 using System;
+using System.IO;
+
 namespace DroneClient
 {
 	public class Config
@@ -16,14 +18,17 @@ namespace DroneClient
                 }
             }
             catch {
-            	//create file
+				File.Create(DCConstants.ConfigFile);
+				StreamWriter writer = new StreamWriter(DCConstants.ConfigFile);
+				writer.WriteLine("username:");
+				writer.WriteLine("password:");
+				writer.Close();
             }
         }
 		
 		public void checkcreds ()
 		{
-			//open up login window
-			ready = true;
+			LoginWindow login = new LoginWindow ();
 		}
 	}
 }

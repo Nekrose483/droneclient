@@ -36,7 +36,7 @@ namespace DroneClient
 			requested_from_server = true;
 		}
 		
-		public static void interpretFamilyMemberXML (XPathNavigator nav)
+		public void interpretFamilyMemberXML (XPathNavigator nav)
 		{
 			string sender_username = "";
 			string channel_name = "";

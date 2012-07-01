@@ -44,74 +44,34 @@ public partial class MainWindow
 		// Widget MainWindow
 		this.UIManager = new global::Gtk.UIManager ();
 		global::Gtk.ActionGroup w1 = new global::Gtk.ActionGroup ("Default");
-		this.FileAction = new global::Gtk.Action (
-			"FileAction",
-			global::Mono.Unix.Catalog.GetString("File"),
-			null,
-			null
-		);
+		this.FileAction = new global::Gtk.Action ("FileAction", global::Mono.Unix.Catalog.GetString ("File"), null, null);
 		this.FileAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("File");
 		w1.Add (this.FileAction, null);
-		this.ExitAction = new global::Gtk.Action (
-			"ExitAction",
-			global::Mono.Unix.Catalog.GetString("Exit"),
-			null,
-			null
-		);
+		this.ExitAction = new global::Gtk.Action ("ExitAction", global::Mono.Unix.Catalog.GetString ("Exit"), null, null);
 		this.ExitAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Exit");
 		w1.Add (this.ExitAction, null);
-		this.LoginAction = new global::Gtk.Action (
-			"LoginAction",
-			global::Mono.Unix.Catalog.GetString("Login"),
-			null,
-			null
-		);
+		this.LoginAction = new global::Gtk.Action ("LoginAction", global::Mono.Unix.Catalog.GetString ("Login"), null, null);
 		this.LoginAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Login");
 		w1.Add (this.LoginAction, null);
-		this.LoginAction1 = new global::Gtk.Action (
-			"LoginAction1",
-			global::Mono.Unix.Catalog.GetString("Login"),
-			null,
-			null
-		);
+		this.LoginAction1 = new global::Gtk.Action ("LoginAction1", global::Mono.Unix.Catalog.GetString ("Login"), null, null);
 		this.LoginAction1.ShortLabel = global::Mono.Unix.Catalog.GetString ("Login");
 		w1.Add (this.LoginAction1, null);
-		this.LogoutAction = new global::Gtk.Action (
-			"LogoutAction",
-			global::Mono.Unix.Catalog.GetString("Logout"),
-			null,
-			null
-		);
+		this.LogoutAction = new global::Gtk.Action ("LogoutAction", global::Mono.Unix.Catalog.GetString ("Logout"), null, null);
 		this.LogoutAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Logout");
 		w1.Add (this.LogoutAction, null);
-		this.MinimizeToTrayAction = new global::Gtk.Action (
-			"MinimizeToTrayAction",
-			global::Mono.Unix.Catalog.GetString("Minimize to Tray"),
-			null,
-			null
-		);
+		this.MinimizeToTrayAction = new global::Gtk.Action ("MinimizeToTrayAction", global::Mono.Unix.Catalog.GetString ("Minimize to Tray"), null, null);
 		this.MinimizeToTrayAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Minimize to Tray");
 		w1.Add (this.MinimizeToTrayAction, null);
-		this.TasksAction = new global::Gtk.Action (
-			"TasksAction",
-			global::Mono.Unix.Catalog.GetString("Tasks"),
-			null,
-			null
-		);
+		this.TasksAction = new global::Gtk.Action ("TasksAction", global::Mono.Unix.Catalog.GetString ("Tasks"), null, null);
 		this.TasksAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Tasks");
 		w1.Add (this.TasksAction, null);
-		this.RefreshAction = new global::Gtk.Action (
-			"RefreshAction",
-			global::Mono.Unix.Catalog.GetString("Refresh"),
-			null,
-			null
-		);
+		this.RefreshAction = new global::Gtk.Action ("RefreshAction", global::Mono.Unix.Catalog.GetString ("Refresh"), null, null);
 		this.RefreshAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Refresh");
 		w1.Add (this.RefreshAction, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
-		this.Title = global::Mono.Unix.Catalog.GetString ("Drone Control System");
+		this.Title = global::Mono.Unix.Catalog.GetString ("Imperius Chat Network");
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		// Container child MainWindow.Gtk.Container+ContainerChild
 		this.vbox1 = new global::Gtk.VBox ();
@@ -130,7 +90,7 @@ public partial class MainWindow
 		this.notebook1 = new global::Gtk.Notebook ();
 		this.notebook1.CanFocus = true;
 		this.notebook1.Name = "notebook1";
-		this.notebook1.CurrentPage = 2;
+		this.notebook1.CurrentPage = 0;
 		// Container child notebook1.Gtk.Notebook+NotebookChild
 		this.vbox3 = new global::Gtk.VBox ();
 		this.vbox3.Name = "vbox3";
@@ -187,7 +147,7 @@ public partial class MainWindow
 		this.button17.CanFocus = true;
 		this.button17.Name = "button17";
 		this.button17.UseUnderline = true;
-		this.button17.Label = global::Mono.Unix.Catalog.GetString ("Done");
+		this.button17.Label = global::Mono.Unix.Catalog.GetString ("Reject");
 		this.hbox2.Add (this.button17);
 		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.hbox2 [this.button17]));
 		w8.Position = 2;
@@ -312,7 +272,7 @@ public partial class MainWindow
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 453;
+		this.DefaultWidth = 467;
 		this.DefaultHeight = 531;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);

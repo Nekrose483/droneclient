@@ -4,16 +4,21 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using Gtk;
+//using Gdk; //system tray icon in v2
 using DroneClient;
 
 public partial class MainWindow: Gtk.Window
 {	
+	//private StatusIcon trayIcon;
 	ListStore store = new ListStore(typeof (string));
 	
 	TreeViewColumn usernameCol;
 	TreeViewColumn onlineCol;
 	CellRendererText usernameCell;
 	CellRendererText onlineCell;
+
+	string activetask = "";
+	bool taskstart = false;
 	
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
@@ -25,6 +30,8 @@ public partial class MainWindow: Gtk.Window
 		this.ExitAction.Activated += new EventHandler (Exit_Click);
 		this.MinimizeToTrayAction.Activated += new EventHandler (MinimizeToTray_Click);
 		this.RefreshAction.Activated += new EventHandler (Refresh_Tasks);
+		this.button18.Clicked += new EventHandler (start_stop_tasks);
+		this.button17.Clicked += new EventHandler (reject_tasks);
 		
 		this.combobox1.Clear ();
 		CellRendererText cell = new CellRendererText ();
@@ -44,6 +51,11 @@ public partial class MainWindow: Gtk.Window
 				
 		this.treeview2.AppendColumn(usernameCol);
 		
+		//trayIcon = new StatusIcon(new Pixbuf ("icon.jpg")); //get an icon
+		//trayIcon.Visible = true;
+		//trayIcon.Activate += delegate { this.Visible = !this.Visible; };
+		//trayIcon.PopupMenu += OnTrayIconPopup;
+		//trayIcon.Tooltip = "DCS v1.0";
 	}
 	
 	
@@ -53,6 +65,17 @@ public partial class MainWindow: Gtk.Window
 		Application.Quit ();
 		a.RetVal = true;
 	}
+	
+	/*static void OnTrayIconPopup (object o, EventArgs args) {
+		Menu popupMenu = new Menu();
+		ImageMenuItem menuItemQuit = new ImageMenuItem ("Quit");
+		Gtk.Image appimg = new Gtk.Image(Stock.Quit, IconSize.Menu);
+		menuItemQuit.Image = appimg;
+		popupMenu.Add(menuItemQuit);
+		menuItemQuit.Activated += delegate { Application.Quit(); };
+		popupMenu.ShowAll();
+		popupMenu.Popup();
+	}*/
 	
 /*	void entry1_Changed(object sender, EventArgs e)       //impliment this in verson 2
         {
@@ -125,5 +148,26 @@ public partial class MainWindow: Gtk.Window
 	
 	public void addFamilyMember(FamilyMember fm) {
 		
+	}
+	
+	public void start_stop_tasks (object sender, EventArgs e)
+	{
+		if (taskstart == false) 
+		{
+			taskstart = true;
+			activetask = combobox1.ActiveText;
+			//take DateTime.Now
+		} else if (taskstart == true)
+		{
+			//DateTime.now - starttime;
+			//foreach (int task in Tasks.tasklist) { if (task.title == activetask) task. } //add elapsed time to datetime var in tasklist.
+			//pop up message box asking if they would like to submit the task_attempt (have a text area for links and such)
+		}
+	}
+
+	public void reject_tasks (object sender, EventArgs e)
+	{
+		//pop up window asking for information on why the rejection
+		//send task_attempt to server as failed
 	}
 }
