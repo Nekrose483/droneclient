@@ -27,7 +27,7 @@ namespace DroneClient
 
           	Connection.HiveConnection.SendMessage(xmlstr);
 			
-			//clear tasks before you recieve them
+			tasklist.Clear();
 		}
 
 		private static bool truefalse (string stuff)
@@ -41,10 +41,11 @@ namespace DroneClient
 		{
 			Console.WriteLine ("Interpret task XML");
 			
-		string title = "";
-		int from_unit = 0;
-		int from_number = 0;
-		int to_unit = 0;
+		 string title = ""; 
+		 int taskid = 0;
+		 int from_unit = 0;
+		 int from_number = 0;
+		 int to_unit = 0;
 		 int to_number = 0;
 		 string task = "";
 		 DateTime creation_date = DateTime.Now; 
@@ -66,6 +67,8 @@ namespace DroneClient
 							
 							if (nav.Name == "title") {
 								title = nav.Value;
+							} else if (nav.Name == "taskid") {
+								taskid = Int32.Parse(nav.Value);
 							} else if (nav.Name == "from_unit") {
 								from_unit = Int32.Parse(nav.Value);
 							} else if (nav.Name == "from_number") {
@@ -100,6 +103,7 @@ namespace DroneClient
 			Console.WriteLine ("Interpret task XML - done");
 			
 							NewTask (title,
+			         					taskid,
 			                            from_unit,
  						 				from_number,
 						 				to_unit,
@@ -115,6 +119,7 @@ namespace DroneClient
 		}
 		
 		private static void NewTask (string title_,
+		                             int taskid_,
 		                 			int from_unit_,
  						 			int from_number_,
 						 			int to_unit_,
@@ -129,6 +134,7 @@ namespace DroneClient
 									DateTime end_date_)
 		{
 			TaskData td = new TaskData (title_,
+			                            taskid_,
 			                            from_unit_,
  						 				from_number_,
 						 				to_unit_,

@@ -4,6 +4,7 @@ namespace DroneClient
 	public class TaskData
 	{
 		public string title;
+		public int taskid;
 		public int from_unit;
 		public int from_number;
 		public int to_unit;
@@ -13,6 +14,7 @@ namespace DroneClient
 		public int type;
 		public bool requires_review;
 		public bool completed;
+		public TimeSpan time; //new variable
 		public bool denied;
 		public bool failed;
 		public DateTime end_date;
@@ -25,6 +27,7 @@ namespace DroneClient
 		
 				
 		public TaskData (string title_,
+		                 int taskid_,
 		                 int from_unit_,
  						 int from_number_,
 						 int to_unit_,
@@ -39,6 +42,7 @@ namespace DroneClient
 						 DateTime end_date_)
 		{
 			title = title_;
+			taskid = taskid_;
 			from_unit = from_unit_;
 			from_number = from_number_;
 			to_unit = to_unit_;

@@ -19,6 +19,8 @@ public partial class MainWindow: Gtk.Window
 
 	string activetask = "";
 	bool taskstart = false;
+
+	DateTime startTime = DateTime.Now;
 	
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
 	{
@@ -156,12 +158,12 @@ public partial class MainWindow: Gtk.Window
 		{
 			taskstart = true;
 			activetask = combobox1.ActiveText;
-			//take DateTime.Now
+			startTime = DateTime.Now;
 		} else if (taskstart == true)
 		{
-			//DateTime.now - starttime;
-			//foreach (int task in Tasks.tasklist) { if (task.title == activetask) task. } //add elapsed time to datetime var in tasklist.
-			//pop up message box asking if they would like to submit the task_attempt (have a text area for links and such)
+			for (int i = 0; i < Tasks.tasklist.Count; i++) { if (Tasks.tasklist[i].title == activetask) Tasks.tasklist[i].time += DateTime.Now - startTime; }
+			submittask sub = new submittask ();
+			sub.Show ();
 		}
 	}
 
