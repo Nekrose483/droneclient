@@ -94,10 +94,11 @@ namespace DroneClient
         }
         public void Connect ()
 		{
-			Config conf = new Config ();
+			try {Config conf = new Config ();} catch {}
 			bool connectedyay = false;
 			
 			try {
+
 				Console.WriteLine ("Attempting to connect to " + DCConstants.Host);
 				
 				IP = IPAddress.Parse (DCConstants.Host);
@@ -111,7 +112,7 @@ namespace DroneClient
 				connectedyay = true;
 			} catch (Exception e) { 
 				Console.WriteLine ("Failed connection: " + e.Message);
-				conf.checkcreds();
+				Config.checkcreds();
 				Connection.Disconnected(e.Message);
 			}
         }

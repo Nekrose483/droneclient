@@ -26,7 +26,7 @@ namespace DroneClient
             }
         }
 		
-		public void checkcreds ()
+		public static void checkcreds ()
 		{
 			LoginWindow login = new LoginWindow ();
 		}
