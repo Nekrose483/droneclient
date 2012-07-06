@@ -1,17 +1,8 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="DroneClient\Connection.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DroneClient/Config.cs">
     <Files>
-      <File FileName="DroneClient\Tasks.cs" Line="122" Column="44" />
-      <File FileName="DroneClient\Commands.cs" Line="19" Column="1" />
-      <File FileName="DroneClient\FamilyMembers.cs" Line="39" Column="9" />
-      <File FileName="DroneClient\MainWindow.cs" Line="164" Column="120" />
-      <File FileName="DroneClient\submittask.cs" Line="27" Column="2" />
-      <File FileName="DroneClient\Chat.cs" Line="1" Column="1" />
-      <File FileName="DroneClient\Config.cs" Line="29" Column="16" />
-      <File FileName="DroneClient\DCConstants.cs" Line="15" Column="1" />
-      <File FileName="DroneClient\Main.cs" Line="15" Column="1" />
-      <File FileName="DroneClient\Connection.cs" Line="113" Column="28" />
+      <File FileName="DroneClient/Config.cs" Line="22" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
